@@ -1,6 +1,5 @@
 on:
   push:
-    branches: [main]
   schedule:
     - cron: '0 6 * * *'
 
@@ -54,7 +53,7 @@ jobs:
             const data = JSON.parse(await fs.readFile("bucket/crystal.json", "utf8"));
 
             data["description"] = `Crystal programming language preview @ ${head_sha.slice(0, 9)}`;
-            data["pre_install"] = [`mv $dir\\crystal-${head_sha} $dir\\crystal-lang`];
+            data["pre_install"] = [`mv $dir\\\\crystal-${head_sha} $dir\\\\crystal-lang`];
             data["url"] = urls.concat(data["url"].slice(2));
             data["hash"] = hashes.concat(data["hash"].slice(2));
 
